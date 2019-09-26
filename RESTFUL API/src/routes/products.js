@@ -8,6 +8,8 @@ Route
         .post('/', productController.addProduct)
         .put('/:id', productController.updateProduct)
         .delete('/:id', productController.deleteProduct)
-        .post('/reduce/:id', productController.reduceProduct)
+        .patch('/reduce/:id', productController.reduceProduct)
+        .patch('/addcount/:id', productController.addcountProduct)
+
 
     module.exports = Route

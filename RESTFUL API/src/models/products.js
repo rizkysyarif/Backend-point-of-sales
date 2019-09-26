@@ -5,7 +5,7 @@ module.exports = {
     getProducts: (data)=>{
 
         return new Promise((resolve, reject) =>{
-            conn.query(`SELECT product.*, categories.name_category FROM product JOIN categories on product.category = categories.id WHERE name LIKE '%${data.search ? data.search: ""}%' ${data.sort ? ` ORDER by ${data.sort}` : ''} `,
+            conn.query(`SELECT product.*, categories.name_category FROM product JOIN categories on product.category = categories.id WHERE name LIKE '%${data.search ? data.search: ""}%' ${data.sort ? ` ORDER by ${data.sort}` : ''} ${data.limit ? `LIMIT ${data.limit} offset ${(data.page-1)*data.limit}` : ''} `,
             (err,result)=>{
                 if (!err) {
                     resolve(result)
@@ -59,7 +59,7 @@ module.exports = {
         return new Promise((resolve, reject)=>{
             conn.query('SELECT * FROM product WHERE id = ?', id, (err, result)=>{
                 if(result.length > 0){
-                    const quantity = result[0].count - count
+                    const quantity = parseInt(result[0].count) - parseInt(count) 
                     if(quantity > 0){
                     conn.query('UPDATE product SET count = ? WHERE id=?', [quantity, id], (err, update)=>{
                         if(!err){
@@ -70,6 +70,29 @@ module.exports = {
                     })
                     }else{
                         reject("too much")
+                    }
+                }else{
+                    reject("your id is wrong")
+                }
+            })
+        })
+    },
+
+    addcountProduct: (id, count) =>{
+        return new Promise((resolve, reject)=>{
+            conn.query('SELECT * FROM product WHERE id = ?', id, (err, result)=>{
+                if(result.length >= 0){
+                    const quantity = parseInt(result[0].count) + parseInt(count)
+                    if(quantity > 0){
+                    conn.query('UPDATE product SET count = ? WHERE id=?', [quantity, id], (err, update)=>{
+                        if(!err){
+                            resolve(result)
+                        }else{
+                            reject(err)
+                        }
+                    })
+                    }else{
+                        reject("")
                     }
                 }else{
                     reject("your id is wrong")

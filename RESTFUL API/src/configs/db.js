@@ -8,13 +8,5 @@ connection.connect((err)=>{
     console.log('DB Connected')
 })
 
-//const connection = mysql.createConnection({
-    
-
-    //host: 'localhost',
-    //    user: 'root',
-     //   password : '',
-       // database : 'post'}
-//})
 
 module.exports = connection

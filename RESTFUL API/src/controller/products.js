@@ -1,11 +1,16 @@
 //impor model
 const productModel = require('../models/products')
-module.exports ={
+const uuid = require('uuid/v4')
+
+const productController = {
     getProduct: (req, res) =>{
         let {sort} = req.query
-        let {search} = req.query
+        let {search} = req.query   
+        let {limit} = req.query
+        let {page = 1} = req.query
+        if(page < 1) page = 1
         
-        let data = {sort, search}
+        let data = {sort, search, limit, page}
         
         productModel.getProducts(data)
             .then(resultQuery =>{
@@ -23,13 +28,13 @@ module.exports ={
                 })
             })
     },
-    addProduct: async (req, res) =>{
-        const {id, name, description, image, category, price, count} = req.body
-        const data = {id, name, description, image, category, price, count}
-        // console.log(req.files)
-        // // const uploadimg = await this.uploadimg(req.files.image)
-        // console.log(uploadimg)
+    async addProduct(req, res) {
+        const {id, name, description, category, price, count} = req.body
 
+        const image = productController.uploadimg(req.files.image)
+
+        const data = {id, name, description, image, category, price, count}
+        
         productModel.addProduct(data)
         .then(result =>{
             res.json({
@@ -85,35 +90,56 @@ module.exports ={
     reduceProduct: (req, res) => {
         const id = req.params.id
         const {count } = req.body
-        productModel.reduceProduct(id, count).then(result =>{
-        res.json({
-            status: 200,
-            message: 'Suksess reduce product by'+ count,
-            
+        productModel.reduceProduct(id, count)
+        .then(result =>{
+            res.json({
+                status: 200,
+                message: 'Suksess reduce product by '+ count,
+                
+            })
         })
-    })
-    .catch(err =>{
-        res.json({
-            status:500,
-            message:'Error'
+        .catch(err =>{
+            res.json({
+                status:500,
+                message: err
+            })
         })
-    })
     },
-    // uploadimg: (image) =>{
+    addcountProduct: (req, res) => {
+        const id = req.params.id
+        const {count } = req.body
+        productModel.addcountProduct(id, count)
+        .then(result =>{
+            res.json({
+                status: 200,
+                message: 'Suksess add product by '+ count,
+                
+            })
+        })
+        .catch(err =>{
+            res.json({
+                status:500,
+                message: err
+            })
+        })
+    },
+    uploadimg(image) {
          
-    //     let img = image
-    //     let imgmime = img.mimetype.split("/")[1]
+        let img = image
+        let imgmime = img.mimetype.split("/")[1]
 
-    //     let imgname = uuidv4() + "." + imgmime
+        let imgname = uuid() + "." + imgmime
 
-    //     let moveimg = img.mv(`public/img/${imgname}`)
+        let moveimg = img.mv(`public/img/${imgname}`)
 
-    //     if(!moveimg) {
-    //         return false
-    //     }
+        if(!moveimg) {
+            return false
+        }
 
-    //     return imgname
-    // }
+        return imgname
+    }
 }
+
+module.exports = productController
 
 
