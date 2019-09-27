@@ -28,13 +28,38 @@ const productController = {
                 })
             })
     },
-    async addProduct(req, res) {
+    addProduct(req, res) {
         const {id, name, description, category, price, count} = req.body
+        if(!req.files || Object.keys(req.files).length === 0) {
+            return res.status(400).send('file not found')
+        }
+
+        let images = req.files.image
+        var fileType = images.mimetype
+        var type = ``
+
+        if(fileType !== 'image/png' && fileType !== 'image/jpg' && fileType !== 'image/jpeg' && fileType !== 'image/svg' && fileType !== 'image/gif' ) {
+            return res.status(400).send('File not format')
+        }
+        if (fileType === 'image/png') {
+            type = 'png'
+        }
+        if (fileType === 'image/jpg') {
+            type = 'jpg'
+        }
+        if (fileType === 'image/jpeg') {
+            type = 'jpeg'
+        }
+        if (fileType === 'image/svg') {
+            type = 'svg'
+        }
+        if (fileType === 'image/gif') {
+            type = 'gif'
+        }
 
         const image = productController.uploadimg(req.files.image)
 
         const data = {id, name, description, image, category, price, count}
-        
         productModel.addProduct(data)
         .then(result =>{
             res.json({
@@ -53,7 +78,38 @@ const productController = {
         },
     updateProduct:(req, res)=>{
         const {name, description, image, category, price, count} = req.body
-        const data = {name, description, image, category, price, count}
+        if(!req.files || Object.keys(req.files).length === 0) {
+            return res.status(400).send('file not found')
+        }
+
+        let images = req.files.image
+        var fileType = images.mimetype
+        var type = ``
+
+        if(fileType !== 'image/png' && fileType !== 'image/jpg' && fileType !== 'image/jpeg' && fileType !== 'image/svg' && fileType !== 'image/gif' ) {
+            return res.status(400).send('File not format')
+        }
+        if (fileType === 'image/png') {
+            type = 'png'
+        }
+        if (fileType === 'image/jpg') {
+            type = 'jpg'
+        }
+        if (fileType === 'image/jpeg') {
+            type = 'jpeg'
+        }
+        if (fileType === 'image/svg') {
+            type = 'svg'
+        }
+        if (fileType === 'image/gif') {
+            type = 'gif'
+        }
+
+        const img = productController.uploadimg(req.files.image)
+
+        
+        const data = {name, description, image: img, category, price, count}
+        
 
         productModel.updateProduct([data,{id: req.params.id}])
         .then(result =>{
@@ -64,9 +120,11 @@ const productController = {
             })
         })
         .catch(err => {
+            console.log(err)
             res.json({
                 status:500,
-                status: 'Error'
+                status: 'Error',
+                err
             })
         })
     },
