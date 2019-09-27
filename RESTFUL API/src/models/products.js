@@ -92,7 +92,7 @@ module.exports = {
                         }
                     })
                     }else{
-                        reject("")
+                        reject(err)
                     }
                 }else{
                     reject("your id is wrong")
