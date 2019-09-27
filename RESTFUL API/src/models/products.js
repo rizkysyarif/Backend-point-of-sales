@@ -58,9 +58,9 @@ module.exports = {
     reduceProduct: (id, count) =>{
         return new Promise((resolve, reject)=>{
             conn.query('SELECT * FROM product WHERE id = ?', id, (err, result)=>{
-                if(result.length > 0){
+                if(result.length >= 0){
                     const quantity = parseInt(result[0].count) - parseInt(count) 
-                    if(quantity > 0){
+                    if(quantity >= 0){
                     conn.query('UPDATE product SET count = ? WHERE id=?', [quantity, id], (err, update)=>{
                         if(!err){
                             resolve(result)
