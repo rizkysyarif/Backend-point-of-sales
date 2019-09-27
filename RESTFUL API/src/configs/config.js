@@ -1,10 +1,10 @@
 module.exports = {
     database: {
         mysql: {
-            host: 'localhost',
-            user: 'root',
-            password: '',
-            database: 'pos'
+            host: process.env.HOST,
+            user: process.env.USER,
+            password: process.env.PASS,
+            database: process.env.NAME,
         },
     }
 }
