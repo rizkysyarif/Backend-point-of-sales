@@ -66,21 +66,5 @@ module.exports = {
             })
         })
     },
-    updateUsers: (req,res ) => {
-        var {password} = req.body
-        var data = {password}
-        var id = req.params.id
 
-        usersModel.updateUsers(data, id).then( result => {
-            res.json({
-                status: 200,
-                message: 'Update Success'
-            })
-        }).catch(err => {
-            res.status(500).json({
-                status: 500,
-                message: 'Update Failed'
-            })
-        })
-    },
 }
