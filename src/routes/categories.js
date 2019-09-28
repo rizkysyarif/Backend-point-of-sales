@@ -1,5 +1,6 @@
 const express   = require('express')
 const Route     = express.Router()
+const middleware = require('../../auth/middleware')
 
 //import controller
 const categoryController = require('../controller/categories')

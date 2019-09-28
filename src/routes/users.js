@@ -10,6 +10,6 @@ Route
     .get('/', middleware.checkToken, usersController.getAllUsers)
     .post('/login',usersController.login)
     .post('/register',usersController.register)
-    .put('/:id', usersController.updateUsers)
+    
 
 module.exports = Route
