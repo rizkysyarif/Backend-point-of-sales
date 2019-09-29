@@ -5,7 +5,7 @@ const uuid = require('uuid/v4')
 const productController = {
     getProduct: (req, res) =>{
         let {sort} = req.query
-        let {search} = req.query   
+        let {search} = req.query
         let {limit} = req.query
         let {page = 1} = req.query
         if(page < 1) page = 1
@@ -35,7 +35,7 @@ const productController = {
         }
 
         let images = req.files.image
-        var fileType = images.mimetype
+        let fileType = images.mimetype
         var type = ``
 
         if(fileType !== 'image/png' && fileType !== 'image/jpg' && fileType !== 'image/jpeg' && fileType !== 'image/svg' && fileType !== 'image/gif' ) {
@@ -111,7 +111,7 @@ const productController = {
         const data = {name, description, image: img, category, price, count}
         
 
-        productModel.updateProduct([data,{id: req.params.id}])
+        productModel.updateProduct(data, req.params.id)
         .then(result =>{
             res.json({
                 status:200,

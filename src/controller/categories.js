@@ -42,7 +42,7 @@ module.exports ={
         const {name_category} = req.body
         const data = {name_category}
 
-        categoryModel.updateCategory([data,{id: req.params.id}])
+        categoryModel.updateCategory(data, req.params.id)
         .then(result =>{
             res.json({
                 status:200,

@@ -31,9 +31,10 @@ module.exports = {
         })
     },
     
-    updateProduct: (data) => {
+    updateProduct: (data, id) => {
         return new Promise ((resolve, reject)=>{
-            conn.query('UPDATE product SET ? WHERE ?', data, (err, result)=>{
+            conn.query('UPDATE product SET ? WHERE ?', [data, id], (err, result)=>{
+                data.id = id
                 if (!err) {
                         resolve(data)
                 }else{

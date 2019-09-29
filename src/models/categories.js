@@ -30,9 +30,10 @@ module.exports = {
         })
     },
     
-    updateCategory: (data) => {
+    updateCategory: (data, id) => {
         return new Promise ((resolve, reject)=>{
-            conn.query('UPDATE categories SET ? WHERE ?', data, (err, result)=>{
+            conn.query('UPDATE categories SET ? WHERE ?', [data, id], (err, result)=>{
+                data.id = id
                 if (!err) {
                         resolve(data)
                 }else{
