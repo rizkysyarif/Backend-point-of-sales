@@ -2,7 +2,7 @@
 
 RESTful API for Point of Sales App
 
-## Task
+### Task
 ```bash
 - CRUD Products
 - CRUD Categories
@@ -15,7 +15,7 @@ RESTful API for Point of Sales App
 - Login/register with JWT
 ```
 
-## Stack
+### Stack
 
 ```python
 - Node JS
@@ -26,7 +26,7 @@ RESTful API for Point of Sales App
 - JWT
 ```
 
-## Build Setup
+### Build Setup
 ```bash
 1. Clone repository
 2. Install depedencies
