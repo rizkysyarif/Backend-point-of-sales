@@ -15,6 +15,33 @@ module.exports = {
             })
         })
     },
+
+    getByOneProducts: (data) => {
+        return new Promise((resolve, reject) => {
+          conn.query("SELECT * from product WHERE id=?", [data, data.id],
+          (err,result) => {
+            if(!err) {
+              resolve(result)
+            } else {
+              reject(err)
+            }
+          })
+        })
+      },
+      
+    getTotalProducts: ()=>{
+
+        return new Promise((resolve, reject) =>{
+            conn.query('SELECT count(id) as totalData FROM product',
+            (err,result)=>{
+                if (!err) {
+                    resolve(result)
+                }else{
+                    reject(new Error(err))
+                }
+            })
+        })
+    },
     
     addProduct: (data) => {
         return new Promise((resolve, reject)=>{
@@ -33,16 +60,21 @@ module.exports = {
     
     updateProduct: (data, id) => {
         return new Promise ((resolve, reject)=>{
-            conn.query('UPDATE product SET ? WHERE ?', [data, id], (err, result)=>{
-                data.id = id
-                if (!err) {
-                        resolve(data)
-                }else{
-                    reject(new Error(err))
+            conn.query('select * from product where id = ?', id, (err, resultSelect) => {
+                if (resultSelect.length > 0) {
+                  conn.query('update product set ? where id = ?', [data, id], (err, result) => {
+                    if (!err) {
+                      resolve(result)
+                    } else {
+                      reject(err)
+                    }
+                  })
+                } else {
+                  reject('ID NOT FOUND!')
                 }
+              })
             })
-        })
-    },
+          },
     
     deleteProduct: (data) => {
         return new Promise ((resolve, reject) =>{

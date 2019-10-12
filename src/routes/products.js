@@ -6,9 +6,10 @@ const middleware = require('../../auth/middleware')
 const productController = require('../controller/products')
 Route
         .get('/',productController.getProduct)
-        .post('/',middleware.checkToken, productController.addProduct)
-        .put('/:id', productController.updateProduct)
-        .delete('/:id',middleware.checkToken, productController.deleteProduct)
+        .get("/:id", productController.getByOneProducts)
+        .post('/', productController.addProduct)
+        .patch('/:id', productController.updateProduct)
+        .delete('/:id', productController.deleteProduct)
         .patch('/reduce/:id',middleware.checkToken, productController.reduceProduct)
         .patch('/addcount/:id',middleware.checkToken, productController.addcountProduct)
 

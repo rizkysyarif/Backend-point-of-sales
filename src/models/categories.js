@@ -32,16 +32,22 @@ module.exports = {
     
     updateCategory: (data, id) => {
         return new Promise ((resolve, reject)=>{
-            conn.query('UPDATE categories SET ? WHERE ?', [data, id], (err, result)=>{
-                data.id = id
-                if (!err) {
-                        resolve(data)
-                }else{
-                    reject(new Error(err))
+            conn.query('select * from categories where id = ?', id, (err, resultSelect) => {
+                if (resultSelect.length > 0) {
+                  conn.query('update categories set ? where id = ?', [data, id], (err, result) => {
+                    if (!err) {
+                      resolve(result)
+                    } else {
+                      reject(err)
+                    }
+                  })
+                } else {
+                  reject('ID NOT FOUND!')
                 }
+              })
             })
-        })
-    },
+          },
+    
     
     deleteCategory: (data) => {
         return new Promise ((resolve, reject) =>{
