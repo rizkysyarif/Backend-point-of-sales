@@ -1,12 +1,32 @@
 const historyModel = require('../models/history')
 
 module.exports ={
-    getDailyIncome: (req, res) => {
-        historyModel.getDailyIncome()
+    getDailyIncome: async (req, res) => {
+        let datetime = new Date();
+        todayDate = datetime.toISOString().slice(0,10)
+
+        datetime.setDate(datetime.getDate() - 1)
+        yesterdayDate = datetime.toISOString().slice(0,10)
+
+        let resultYesterday = await historyModel.getIncome(yesterdayDate)
+
+        historyModel.todayIncome()
         .then(result => {
+            total = 0
+            totalYesterday = 0
+            if (result.length > 0){
+                total = result[0]['TOTAL']
+            }
+
+            if (resultYesterday.length > 0){
+                totalYesterday = resultYesterday[0]['TOTAL']
+            }
             res.json({
                 status: 200,
-                data: result,
+                data: {
+                    today: total,
+                    yesterday: totalYesterday 
+                },
                 message: "daily income"
             })
         })
@@ -35,12 +55,20 @@ module.exports ={
         })
     },
 
-    getWeeklyIncome: (req, res) => {
+    getWeeklyIncome: async (req, res) => {
+        
+        let thisWeekData = await historyModel.getThisWeek()
+        let lastWeekData = await historyModel.getLastWeek()
         historyModel.getWeeklyIncome()
         .then(result => {
+            let data = {
+                'thisWeek': thisWeekData,
+                'lastWeek': lastWeekData
+            }
             res.json({
                 status: 200,
                 data: result,
+                week: data,
                 message: "weekly income"
             })
         })

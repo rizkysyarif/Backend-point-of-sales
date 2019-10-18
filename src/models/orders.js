@@ -4,7 +4,7 @@ module.exports = {
     
     getOrders: (data)=>{
         return new Promise((resolve, reject) =>{
-            conn.query(`SELECT order_item.*, product.* FROM order_item JOIN product on order_item.product_id = product.id ${data.limit ? `LIMIT ${data.limit} offset ${(data.page-1)*data.limit}` : ''} `,
+            conn.query(`SELECT order_item.*, product.* FROM order_item JOIN product on order_item.product_id = product.id ORDER BY order_item.create_date DESC ${data.limit ? `LIMIT ${data.limit} offset ${(data.page-1)*data.limit}` : ''}  `,
             (err,result)=>{
                 if (!err) {
                     resolve(result)
