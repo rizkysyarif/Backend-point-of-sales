@@ -35,34 +35,14 @@ RESTful API for Point of Sales App
 5. Start server
 ```
 ## Product Routes
-### GET Request
-```bash
-- "/api/product" => get all products data from database. Query params:
- - "Search" -> search by products name,
- - "Sort" -> sorting data based on ascending or descending,
- - "Limit" -> limitation data per page,
- - "Page" -> redirect to specific page.
-```
-### POST Request
-```bash
-- "/api/product" => create new data
-```
-
-### PATCH Request
-```bash
-- "/api/product/reduce/:id" => reduce quantity of the product
-- "/api/product/addcount/:id" => add quantity of the product
-```
-
-### PUT Request
-```bash
-"/api/product/:id" => Update data products
-```
-
-### DELETE Request
-```bash
- "/api/product/:id" => Delete a products in database with specific id
-```
+| Method |Endpoint  |Descsription  |Request Param  | Request Query  | Request Body  |
+| --- | --- | --- | --- | --- | --- |
+| GET | /api/product  | Get Product |   |Search: STRING, Limit: NUMBER, Page: NUMBER, Sort:STRING  |  |
+| POST | /api/product | Add Product |  |  | Name: STRING, description: STRING, category: NUMBER, price: NUMBER, count: NUMBER, image |
+| PATCH | /api/product/reduce/:id | Reduce Quantity Of The Product  | id:NUMBER |  |  |
+| PATCH  | /api/product/addcount/:id | Add Quantity Of The Product | id:NUMBER |  |  |
+| PUT |/api/product/:id  | Update Product |  |  | name: STRING, description: STRING, category: NUMBER, price: NUMBER, count: NUMBER, image |
+|DELETE|  /api/product/:id | Delete Product | id: NUMBER |
 ## Categories Routes
 
 ### GET Request
