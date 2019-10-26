@@ -53,14 +53,8 @@ RESTful API for Point of Sales App
 |DELETE|  /api/category/:id | Delete Category | id: NUMBER |
 
 ## Users Routes
-
-### GET Request
-```bash
-"/api/user" => get all users data from database (Login required)
-```
-
-### POST Request
-```bash
-"/api/user/register" => Register/add new user to database
-"/api/user/login" => Login new user to database (You will get a token)
-```
+| Method |Endpoint  |Descsription  |Request Param  | Request Query  | Request Body  |
+| --- | --- | --- | --- | --- | --- |
+| GET | /api/users  | Get Users |   |  |  |
+| POST |/api/user/login | Login (You Will Get Token) |  |  | email: STRING, password: NUMBER|
+| POST |/api/user/register  | Register/Add New User |  |  | email: STRING, password: NUMBER |
