@@ -45,25 +45,13 @@ RESTful API for Point of Sales App
 |DELETE|  /api/product/:id | Delete Product | id: NUMBER |
 ## Categories Routes
 
-### GET Request
-```bash
-"/api/category" => get all category data from database.
-```
+| Method |Endpoint  |Descsription  |Request Param  | Request Query  | Request Body  |
+| --- | --- | --- | --- | --- | --- |
+| GET | /api/category  | Get Category |   |  |  |
+| POST |/api/category | Add Category |  |  | name_category: STRING|
+| PUT |/api/category/:id  | Update Category |  |  | name_category: STRING |
+|DELETE|  /api/category/:id | Delete Category | id: NUMBER |
 
-### POST Request
-```bash
-"/api/category" => create new data to category database
-```
-
-### PUT Request
-```bash
-"/api/category/:id" => Update data category
-```
-
-### DELETE Request
-```bash
-"/api/category/:id" => Deleting data category in database.
-```
 ## Users Routes
 
 ### GET Request
