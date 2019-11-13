@@ -35,9 +35,7 @@ module.exports ={
 
 
         orderModel.addOrders(data)
-        .then(result =>{
-            // req.body.order.forEach(item => {   
-            //     console.log(item)    
+        .then(result =>{  
             let orderItem = []
             req.body.order.map(item => {
                 orderItem.push([null, item[0], no_recipient, item[1], item[2], null])

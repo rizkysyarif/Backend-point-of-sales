@@ -5,7 +5,7 @@ const middleware = require('../../auth/middleware')
 //import controller
 const productController = require('../controller/products')
 Route
-        .get('/',middleware.checkToken,productController.getProduct)
+        .get('/',productController.getProduct)
         .get("/:id", productController.getByOneProducts)
         .post('/', productController.addProduct)
         .patch('/:id', productController.updateProduct)
