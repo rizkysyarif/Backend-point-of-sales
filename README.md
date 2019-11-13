@@ -35,64 +35,26 @@ RESTful API for Point of Sales App
 5. Start server
 ```
 ## Product Routes
-### GET Request
-```bash
-- "/api/product" => get all products data from database. Query params:
- - "Search" -> search by products name,
- - "Sort" -> sorting data based on ascending or descending,
- - "Limit" -> limitation data per page,
- - "Page" -> redirect to specific page.
-```
-### POST Request
-```bash
-- "/api/product" => create new data
-```
-
-### PATCH Request
-```bash
-- "/api/product/reduce/:id" => reduce quantity of the product
-- "/api/product/addcount/:id" => add quantity of the product
-```
-
-### PUT Request
-```bash
-"/api/product/:id" => Update data products
-```
-
-### DELETE Request
-```bash
- "/api/product/:id" => Delete a products in database with specific id
-```
+| Method |Endpoint  |Descsription  |Request Param  | Request Query  | Request Body  |
+| --- | --- | --- | --- | --- | --- |
+| GET | /api/product  | Get Product |   |Search: STRING, Limit: NUMBER, Page: NUMBER, Sort:STRING  |  |
+| POST | /api/product | Add Product |  |  | Name: STRING, description: STRING, category: NUMBER, price: NUMBER, count: NUMBER, image |
+| PATCH | /api/product/reduce/:id | Reduce Quantity Of The Product  | id:NUMBER |  |  |
+| PATCH  | /api/product/addcount/:id | Add Quantity Of The Product | id:NUMBER |  |  |
+| PUT |/api/product/:id  | Update Product |  |  | name: STRING, description: STRING, category: NUMBER, price: NUMBER, count: NUMBER, image |
+|DELETE|  /api/product/:id | Delete Product | id: NUMBER |
 ## Categories Routes
 
-### GET Request
-```bash
-"/api/category" => get all category data from database.
-```
+| Method |Endpoint  |Descsription  |Request Param  | Request Query  | Request Body  |
+| --- | --- | --- | --- | --- | --- |
+| GET | /api/category  | Get Category |   |  |  |
+| POST |/api/category | Add Category |  |  | name_category: STRING|
+| PUT |/api/category/:id  | Update Category |  |  | name_category: STRING |
+|DELETE|  /api/category/:id | Delete Category | id: NUMBER |
 
-### POST Request
-```bash
-"/api/category" => create new data to category database
-```
-
-### PUT Request
-```bash
-"/api/category/:id" => Update data category
-```
-
-### DELETE Request
-```bash
-"/api/category/:id" => Deleting data category in database.
-```
 ## Users Routes
-
-### GET Request
-```bash
-"/api/user" => get all users data from database (Login required)
-```
-
-### POST Request
-```bash
-"/api/user/register" => Register/add new user to database
-"/api/user/login" => Login new user to database (You will get a token)
-```
+| Method |Endpoint  |Descsription  |Request Param  | Request Query  | Request Body  |
+| --- | --- | --- | --- | --- | --- |
+| GET | /api/users  | Get Users |   |  |  |
+| POST |/api/user/login | Login (You Will Get Token) |  |  | email: STRING, password: NUMBER|
+| POST |/api/user/register  | Register/Add New User |  |  | email: STRING, password: NUMBER |
