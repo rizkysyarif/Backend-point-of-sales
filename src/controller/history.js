@@ -6,26 +6,24 @@ module.exports ={
         todayDate = datetime.toISOString().slice(0,10)
 
         datetime.setDate(datetime.getDate() - 1)
-        yesterdayDate = datetime.toISOString().slice(0,10)
 
-        let resultYesterday = await historyModel.getIncome(yesterdayDate)
-
+        let resultYesterday = await historyModel.getIncome()
+        
         historyModel.todayIncome()
         .then(result => {
-            total = 0
-            totalYesterday = 0
-            if (result.length > 0){
-                total = result[0]['TOTAL']
+            
+            if (result[0]['TOTAL'] == null){
+                result[0]['TOTAL'] = 0
             }
 
-            if (resultYesterday.length > 0){
-                totalYesterday = resultYesterday[0]['TOTAL']
+            if (resultYesterday[0]['TOTAL'] == null){
+                resultYesterday[0]['TOTAL'] = 0
             }
             res.json({
                 status: 200,
                 data: {
-                    today: total,
-                    yesterday: totalYesterday 
+                    today: result[0]['TOTAL'],
+                    yesterday: resultYesterday[0]['TOTAL'] 
                 },
                 message: "daily income"
             })
@@ -38,12 +36,16 @@ module.exports ={
         })
     },
 
-    getYearlyIncome: (req, res) => {
+    getYearlyIncome: async (req, res) => {
+        let card = await historyModel.getYearlyIncomeCard()
         historyModel.getYearlyIncome()
         .then(result => {
             res.json({
                 status: 200,
-                data: result,
+                data: {
+                    'chart':result,
+                    'card':card
+                },
                 message: "yearly income"
             })
         })

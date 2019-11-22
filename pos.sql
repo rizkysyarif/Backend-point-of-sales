@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2019 at 12:32 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.1.32
+-- Waktu pembuatan: 22 Nov 2019 pada 16.39
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Struktur dari tabel `categories`
 --
 
 CREATE TABLE `categories` (
@@ -34,7 +34,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `categories`
+-- Dumping data untuk tabel `categories`
 --
 
 INSERT INTO `categories` (`id`, `name_category`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `categories` (`id`, `name_category`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Struktur dari tabel `orders`
 --
 
 CREATE TABLE `orders` (
@@ -56,7 +56,7 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `orders`
+-- Dumping data untuk tabel `orders`
 --
 
 INSERT INTO `orders` (`id`, `no_recipient`, `total_price`, `created_date`) VALUES
@@ -98,24 +98,28 @@ INSERT INTO `orders` (`id`, `no_recipient`, `total_price`, `created_date`) VALUE
 (36, '1fe84230-ec4e-11e9-8cfa-2fb1e3a01dec', 2500, '2019-10-11 17:39:49'),
 (37, '641a59c0-ec53-11e9-8cfa-2fb1e3a01dec', 2500, '2019-10-11 18:17:31'),
 (38, '5c2ba410-ec55-11e9-8cfa-2fb1e3a01dec', 1000, '2019-10-11 18:31:37'),
-(39, '276e8890-ec8d-11e9-8f57-f7efd2ec3cbb', 2500, '2019-10-12 01:11:00'),
-(40, '32d38a30-ec94-11e9-8f57-f7efd2ec3cbb', 3500, '2019-10-12 02:01:26'),
-(41, 'ae9c3d10-eca3-11e9-af58-0d008f0f2e50', 3500, '2019-10-12 03:52:16'),
+(39, '276e8890-ec8d-11e9-8f57-f7efd2ec3cbb', 2500, '2019-11-17 01:11:00'),
+(40, '32d38a30-ec94-11e9-8f57-f7efd2ec3cbb', 3500, '2019-11-18 02:01:26'),
+(41, 'ae9c3d10-eca3-11e9-af58-0d008f0f2e50', 3500, '2019-11-10 03:52:16'),
 (42, 'a0fc85b0-ecf4-11e9-a34d-23a51730a4a5', 10500, '2019-10-12 13:31:42'),
-(43, '2c83dfd0-ed99-11e9-b9a3-672e540189a0', 3500, '2019-10-13 09:09:34'),
-(44, '0c39eca0-ed9a-11e9-b9a3-672e540189a0', 6000, '2019-10-13 09:15:49'),
-(45, 'e73d9720-eda9-11e9-bd72-1927b7759cfa', 1000, '2019-10-13 11:09:19'),
-(46, 'e02dec00-ee49-11e9-87ae-7145c3827b8e', 1000, '2019-10-14 06:14:27'),
-(47, 'f60707f0-ee49-11e9-87ae-7145c3827b8e', 3500, '2019-10-14 06:15:03'),
-(48, '8f83e1c0-f0e6-11e9-9217-4dd50d7e2a41', 6000, '2019-10-17 14:01:05'),
-(49, '92aa9d30-f0e6-11e9-9217-4dd50d7e2a41', 6000, '2019-10-17 14:01:10'),
-(50, '24c4a710-f0e7-11e9-9217-4dd50d7e2a41', 9000, '2019-10-17 14:05:15'),
-(51, 'aa5779f0-f1f2-11e9-b39b-d7086d34211d', 6000, '2019-10-18 22:00:15');
+(43, '2c83dfd0-ed99-11e9-b9a3-672e540189a0', 3500, '2019-11-11 09:09:34'),
+(44, '0c39eca0-ed9a-11e9-b9a3-672e540189a0', 6000, '2019-11-11 09:15:49'),
+(45, 'e73d9720-eda9-11e9-bd72-1927b7759cfa', 1000, '2019-11-11 11:09:19'),
+(46, 'e02dec00-ee49-11e9-87ae-7145c3827b8e', 1000, '2019-11-12 06:14:27'),
+(47, 'f60707f0-ee49-11e9-87ae-7145c3827b8e', 3500, '2019-11-12 06:15:03'),
+(48, '8f83e1c0-f0e6-11e9-9217-4dd50d7e2a41', 6000, '2019-11-13 14:01:05'),
+(49, '92aa9d30-f0e6-11e9-9217-4dd50d7e2a41', 6000, '2019-11-13 14:01:10'),
+(50, '24c4a710-f0e7-11e9-9217-4dd50d7e2a41', 9000, '2019-11-13 14:05:15'),
+(51, 'aa5779f0-f1f2-11e9-b39b-d7086d34211d', 6000, '2019-11-13 22:00:15'),
+(52, '43a6e0b0-0ac0-11ea-aaac-fd38b4adb176', 7000, '2019-11-19 11:32:27'),
+(53, '2a863380-0ac3-11ea-aaac-fd38b4adb176', 5000, '2019-11-19 11:53:13'),
+(54, '3c955470-0b9a-11ea-8d39-590747e27921', 3000, '2019-11-20 13:32:45'),
+(55, 'c47e6940-0c2a-11ea-bd87-659274adb2b1', 6000, '2019-11-21 06:47:21');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_item`
+-- Struktur dari tabel `order_item`
 --
 
 CREATE TABLE `order_item` (
@@ -128,7 +132,7 @@ CREATE TABLE `order_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `order_item`
+-- Dumping data untuk tabel `order_item`
 --
 
 INSERT INTO `order_item` (`id`, `product_id`, `no_recipient`, `price_order`, `quantity`, `create_date`) VALUES
@@ -162,30 +166,36 @@ INSERT INTO `order_item` (`id`, `product_id`, `no_recipient`, `price_order`, `qu
 (28, 21, '1fe84230-ec4e-11e9-8cfa-2fb1e3a01dec', 2500, 1, '2019-10-11 17:39:49'),
 (29, 21, '641a59c0-ec53-11e9-8cfa-2fb1e3a01dec', 2500, 1, '2019-10-11 18:17:31'),
 (30, 3, '5c2ba410-ec55-11e9-8cfa-2fb1e3a01dec', 1000, 1, '2019-10-11 18:31:37'),
-(31, 21, '276e8890-ec8d-11e9-8f57-f7efd2ec3cbb', 2500, 1, '2019-10-12 01:11:00'),
-(32, 5, '32d38a30-ec94-11e9-8f57-f7efd2ec3cbb', 3500, 1, '2019-10-12 02:01:26'),
-(33, 5, 'ae9c3d10-eca3-11e9-af58-0d008f0f2e50', 3500, 1, '2019-10-12 03:52:16'),
+(31, 21, '276e8890-ec8d-11e9-8f57-f7efd2ec3cbb', 2500, 1, '2019-11-17 01:11:00'),
+(32, 5, '32d38a30-ec94-11e9-8f57-f7efd2ec3cbb', 3500, 1, '2019-11-18 02:01:26'),
+(33, 5, 'ae9c3d10-eca3-11e9-af58-0d008f0f2e50', 3500, 1, '2019-11-10 03:52:16'),
 (34, 5, 'a0fc85b0-ecf4-11e9-a34d-23a51730a4a5', 3500, 1, '2019-10-12 13:31:42'),
 (35, 4, 'a0fc85b0-ecf4-11e9-a34d-23a51730a4a5', 6000, 1, '2019-10-12 13:31:42'),
 (36, 3, 'a0fc85b0-ecf4-11e9-a34d-23a51730a4a5', 1000, 1, '2019-10-12 13:31:42'),
-(37, 5, '2c83dfd0-ed99-11e9-b9a3-672e540189a0', 3500, 1, '2019-10-13 09:09:34'),
-(38, 4, '0c39eca0-ed9a-11e9-b9a3-672e540189a0', 6000, 1, '2019-10-13 09:15:49'),
-(39, 3, 'e73d9720-eda9-11e9-bd72-1927b7759cfa', 1000, 1, '2019-10-13 11:09:19'),
-(40, 3, 'e02dec00-ee49-11e9-87ae-7145c3827b8e', 1000, 1, '2019-10-14 06:14:27'),
-(41, 5, 'f60707f0-ee49-11e9-87ae-7145c3827b8e', 3500, 1, '2019-10-14 06:15:03'),
-(42, 5, '8f83e1c0-f0e6-11e9-9217-4dd50d7e2a41', 3500, 1, '2019-10-17 14:01:05'),
-(43, 21, '8f83e1c0-f0e6-11e9-9217-4dd50d7e2a41', 2500, 1, '2019-10-17 14:01:05'),
-(44, 4, '92aa9d30-f0e6-11e9-9217-4dd50d7e2a41', 6000, 1, '2019-10-17 14:01:10'),
-(45, 23, '24c4a710-f0e7-11e9-9217-4dd50d7e2a41', 5000, 1, '2019-10-17 14:05:15'),
-(46, 26, '24c4a710-f0e7-11e9-9217-4dd50d7e2a41', 3000, 1, '2019-10-17 14:05:15'),
-(47, 29, '24c4a710-f0e7-11e9-9217-4dd50d7e2a41', 1000, 1, '2019-10-17 14:05:15'),
-(48, 21, 'aa5779f0-f1f2-11e9-b39b-d7086d34211d', 2500, 1, '2019-10-18 22:00:15'),
-(49, 5, 'aa5779f0-f1f2-11e9-b39b-d7086d34211d', 3500, 1, '2019-10-18 22:00:15');
+(37, 5, '2c83dfd0-ed99-11e9-b9a3-672e540189a0', 3500, 1, '2019-11-11 09:09:34'),
+(38, 4, '0c39eca0-ed9a-11e9-b9a3-672e540189a0', 6000, 1, '2019-11-11 09:15:49'),
+(39, 3, 'e73d9720-eda9-11e9-bd72-1927b7759cfa', 1000, 1, '2019-11-11 11:09:19'),
+(40, 3, 'e02dec00-ee49-11e9-87ae-7145c3827b8e', 1000, 1, '2019-11-12 06:14:27'),
+(41, 5, 'f60707f0-ee49-11e9-87ae-7145c3827b8e', 3500, 1, '2019-11-12 06:15:03'),
+(42, 5, '8f83e1c0-f0e6-11e9-9217-4dd50d7e2a41', 3500, 1, '2019-11-13 14:01:05'),
+(43, 21, '8f83e1c0-f0e6-11e9-9217-4dd50d7e2a41', 2500, 1, '2019-11-13 14:01:05'),
+(44, 4, '92aa9d30-f0e6-11e9-9217-4dd50d7e2a41', 6000, 1, '2019-11-13 14:01:10'),
+(45, 23, '24c4a710-f0e7-11e9-9217-4dd50d7e2a41', 5000, 1, '2019-11-13 14:05:15'),
+(46, 26, '24c4a710-f0e7-11e9-9217-4dd50d7e2a41', 3000, 1, '2019-11-13 14:05:15'),
+(47, 29, '24c4a710-f0e7-11e9-9217-4dd50d7e2a41', 1000, 1, '2019-11-13 14:05:15'),
+(48, 21, 'aa5779f0-f1f2-11e9-b39b-d7086d34211d', 2500, 1, '2019-11-13 22:00:15'),
+(49, 5, 'aa5779f0-f1f2-11e9-b39b-d7086d34211d', 3500, 1, '2019-11-13 22:00:15'),
+(50, 4, '43a6e0b0-0ac0-11ea-aaac-fd38b4adb176', 6000, 1, '2019-11-19 11:32:27'),
+(51, 3, '43a6e0b0-0ac0-11ea-aaac-fd38b4adb176', 1000, 1, '2019-11-19 11:32:27'),
+(52, 23, '2a863380-0ac3-11ea-aaac-fd38b4adb176', 5000, 1, '2019-11-19 11:53:13'),
+(53, 35, '3c955470-0b9a-11ea-8d39-590747e27921', 3000, 1, '2019-11-20 13:32:45'),
+(54, 21, 'c47e6940-0c2a-11ea-bd87-659274adb2b1', 2500, 1, '2019-11-21 06:47:22'),
+(55, 5, 'c47e6940-0c2a-11ea-bd87-659274adb2b1', 3500, 1, '2019-11-21 06:47:22');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Struktur dari tabel `product`
 --
 
 CREATE TABLE `product` (
@@ -201,13 +211,13 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `product`
+-- Dumping data untuk tabel `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `description`, `image`, `category`, `price`, `date_added`, `date_update`, `count`) VALUES
-(3, 'Teh Gelas', 'Menyegarkan', '5f433f58-6ae1-41cd-814b-bdd363458570.jpeg', '2', 1000, '2019-09-24 12:27:58', '2019-10-08 12:03:07', 120),
+(3, 'Teh Gelas', 'Menyegarkan', '5f433f58-6ae1-41cd-814b-bdd363458570.jpeg', '2', 1000, '2019-09-24 12:27:58', '2019-11-20 14:01:12', 12),
 (4, 'Pucuk Harum', 'Menghilangkan Dahaga dan Gak Nyangkut Di Leher', '17e118e1-55c2-430f-b4d4-992c17935285.jpeg', '2', 6000, '2019-09-24 12:27:58', '2019-10-08 12:03:24', 15),
-(5, 'Indomie', 'Enak', '265d0fac-7892-4c73-a742-4dd778ea9a86.jpeg', '1', 3500, '2019-09-24 12:31:58', '2019-10-08 11:37:04', 10),
+(5, 'Indomie', 'Enak', '265d0fac-7892-4c73-a742-4dd778ea9a86.jpeg', '1', 3500, '2019-09-24 12:31:58', '2019-11-20 14:01:02', 11),
 (21, 'Lays', 'Enak', 'd68d5576-b85b-4d36-8d46-6ace3efe40d3.jpeg', '1', 2500, '2019-10-03 06:15:02', NULL, 15),
 (23, 'Pepsi', 'Menyegarkan', '39051e79-8377-4770-b5f5-fca6725feadd.jpeg', '2', 5000, '2019-10-03 06:16:22', NULL, 19),
 (26, 'Sarimi Isi Duo', 'Enak', 'b610079d-cad9-4ebd-baa3-24e88df2c1b3.jpeg', '1', 3000, '2019-10-03 06:18:38', NULL, 29),
@@ -217,7 +227,7 @@ INSERT INTO `product` (`id`, `name`, `description`, `image`, `category`, `price`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -227,7 +237,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`) VALUES
@@ -239,65 +249,65 @@ INSERT INTO `users` (`id`, `email`, `password`) VALUES
 --
 
 --
--- Indexes for table `categories`
+-- Indeks untuk tabel `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orders`
+-- Indeks untuk tabel `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `order_item`
+-- Indeks untuk tabel `order_item`
 --
 ALTER TABLE `order_item`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product`
+-- Indeks untuk tabel `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT untuk tabel `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT untuk tabel `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
--- AUTO_INCREMENT for table `order_item`
+-- AUTO_INCREMENT untuk tabel `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
